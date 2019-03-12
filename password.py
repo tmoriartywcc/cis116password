@@ -1,13 +1,22 @@
 PASSWORD = 'Waubonsee'
+INPUT_PROMPT = 'Please enter password: '
+SUCCESS_PROMPT = 'Correct!'
+FAIL_PROMPT = 'Incorrect!'
 
-def check_password(user_pass):
+def is_password(user_pass):
     if user_pass == PASSWORD:
-        print('Correct!')
+        return True
     else:
-        print('Incorrect!')
+        return False
 
 def main():
-    user_pass = input('Please enter password: ')
-    check_password(user_pass)
+    user_pass = input(INPUT_PROMPT)
+
+    while not is_password(user_pass):
+        print(FAIL_PROMPT)
+        user_pass = input(INPUT_PROMPT)
+
+    print(SUCCESS_PROMPT)
 
 main()
+
